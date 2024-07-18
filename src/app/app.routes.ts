@@ -19,7 +19,7 @@ export const routes: Routes = [
         children: [
           { path: 'search/:id', component: SearchComponent },
           { path: 'card/:id/:imdbID', component: CardFormComponent },
-          { path: 'results', component: ResultsComponent },
+          { path: 'results/:id', component: ResultsComponent },
         ],
       },
       { path: 'login', component: LoginComponent },

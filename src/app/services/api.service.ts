@@ -19,4 +19,18 @@ export class ApiService {
     }
     return [];
   }
+
+  async fetchResultDedails(imdbID: string) {
+    const response = await fetch(
+      `https://www.omdbapi.com/?apikey=${this.API_KEY}&i=${encodeURIComponent(
+        imdbID
+      )}`
+    );
+    const data = await response.json();
+    console.log(`API Antwort Details:`, data);
+    if (data.Response === 'True') {
+      return data;
+    }
+    return [];
+  }
 }

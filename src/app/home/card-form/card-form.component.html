@@ -1,1 +1,114 @@
-<p>card-form works!</p>
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Wählen Sie die Details aus, um Ihren Lieblingsfilm zu erraten</h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Um anderen Benutzern zu helfen, Ihren Lieblingsfilm zu erraten, wählen Sie bitte die Film-Details aus, die angezeigt werden sollen. Durch die Auswahl bestimmter Kategorien können Sie entscheiden, welche Informationen sichtbar sind, damit andere versuchen können, Ihren Film zu erraten.</p>
+        <div class="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
+            
+<h3 class="mb-5 text-lg font-medium text-gray-900 dark:text-white">Sie können beispielsweise die Schauspieler, den Plot, die Awards oder andere Details auswählen, um den anderen eine Vorstellung von Ihrem Lieblingsfilm zu geben. Je mehr Informationen Sie bereitstellen, desto einfacher wird es für andere, Ihren Film zu erkennen und zu erraten!</h3>
+<form [formGroup]="movieForm" (submit)="onSubmit()">
+<ul *ngIf="movieDetails" class="grid w-full gap-6 md:grid-cols-3">
+    <li>
+        <input formControlName="actors" type="checkbox" id="movieDetails-actors" value="" class="hidden peer" required="">
+        <label for="movieDetails-actors" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Actors</div>
+                <div class="w-full text-sm">{{ movieDetails.Actors }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="awards" type="checkbox" id="movieDetails-awards" value="" class="hidden peer" required="">
+        <label for="movieDetails-awards" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Awards</div>
+                <div class="w-full text-sm">{{ movieDetails.Awards }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="boxOffice" type="checkbox" id="movieDetails-boxOffice" value="" class="hidden peer" required="">
+        <label for="movieDetails-boxOffice" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Box Office</div>
+                <div class="w-full text-sm">{{ movieDetails.BoxOffice }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="country" type="checkbox" id="movieDetails-country" value="" class="hidden peer" required="">
+        <label for="movieDetails-country" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Country</div>
+                <div class="w-full text-sm">{{ movieDetails.Country }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="genre" type="checkbox" id="movieDetails-genre" value="" class="hidden peer" required="">
+        <label for="movieDetails-genre" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Genre</div>
+                <div class="w-full text-sm">{{ movieDetails.Genre }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="language" type="checkbox" id="movieDetails-language" value="" class="hidden peer" required="">
+        <label for="movieDetails-language" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Language</div>
+                <div class="w-full text-sm">{{ movieDetails.Language }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="plot" type="checkbox" id="movieDetails-plot" value="" class="hidden peer" required="">
+        <label for="movieDetails-plot" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Plot</div>
+                <div class="w-full text-sm">{{ movieDetails.Plot }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="released" type="checkbox" id="movieDetails-released" value="" class="hidden peer" required="">
+        <label for="movieDetails-released" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Released</div>
+                <div class="w-full text-sm">{{ movieDetails.Released }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="type" type="checkbox" id="movieDetails-type" value="" class="hidden peer" required="">
+        <label for="movieDetails-type" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Type</div>
+                <div class="w-full text-sm">{{ movieDetails.Type }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="writer" type="checkbox" id="movieDetails-writer" value="" class="hidden peer" required="">
+        <label for="movieDetails-writer" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Writer</div>
+                <div class="w-full text-sm">{{ movieDetails.Writer }}</div>
+            </div>
+        </label>
+    </li>
+    <li>
+        <input formControlName="year" type="checkbox" id="movieDetails-year" value="" class="hidden peer" required="">
+        <label for="movieDetails-year" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+            <div class="block">
+                <div class="w-full text-lg font-semibold">Year</div>
+                <div class="w-full text-sm">{{ movieDetails.Year }}</div>
+            </div>
+        </label>
+    </li>
+</ul>
+<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Speichern</button>
+</form>
+        </div> 
+    </div>
+</section>
