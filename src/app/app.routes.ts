@@ -18,7 +18,7 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
           { path: 'search/:id', component: SearchComponent },
-          { path: 'card-form/:id', component: CardFormComponent },
+          { path: 'card/:id/:imdbID', component: CardFormComponent },
           { path: 'results', component: ResultsComponent },
         ],
       },
