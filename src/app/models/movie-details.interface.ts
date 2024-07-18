@@ -24,4 +24,23 @@ export interface MovieDetails {
   imdbID: string;
   imdbRating: string;
   imdbVotes: string;
+  selectedDetails?: MovieFormValues;
+  userId?: string;
+  userName?: string;
+  resolved?: boolean;
+  resolvedUser: string;
+}
+
+export interface MovieFormValues {
+  actors: boolean;
+  awards: boolean;
+  boxOffice: boolean;
+  country: boolean;
+  genre: boolean;
+  language: boolean;
+  plot: boolean;
+  released: boolean;
+  type: boolean;
+  writer: boolean;
+  year: boolean;
 }
