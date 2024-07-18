@@ -1,27 +1,32 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { LocalStorageService } from './local-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isLoggedIn = false;
-  private username: string | null = null;
+  localStorageService = inject(LocalStorageService);
+  router = inject(Router);
+  
 
   login(name: string | null): void {
-    this.isLoggedIn = true;
-    this.username = name;
+    this.localStorageService.setItem('isLoggedIn', true);
+    this.localStorageService.setItem('username', name);
   }
 
   logout(): void {
-    this.isLoggedIn = false;
-    this.username = null;
+    this.localStorageService.clear();
+    this.router.navigate(['/login']);
   }
 
   isLoggedInUser(): boolean {
-    return this.isLoggedIn;
+    const isLoggedIn = this.localStorageService.getItem('isLoggedIn');
+    return isLoggedIn;
   }
 
   getUsername(): string | null {
-    return this.username;
+    const username = this.localStorageService.getItem('username');
+    return username;
   }
 }
