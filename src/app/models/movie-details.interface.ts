@@ -29,6 +29,8 @@ export interface MovieDetails {
   userName?: string;
   resolved?: boolean;
   resolvedUser: string;
+  movieOptions?: string[];
+  id: string;
 }
 
 export interface MovieFormValues {

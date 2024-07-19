@@ -13,7 +13,6 @@ export class ApiService {
       )}`
     );
     const data = await response.json();
-    console.log(`API Antwort:`, data);
     if (data.Response === 'True' && data.Search && data.Search.length > 0) {
       return data.Search;
     }
@@ -27,7 +26,6 @@ export class ApiService {
       )}`
     );
     const data = await response.json();
-    console.log(`API Antwort Details:`, data);
     if (data.Response === 'True') {
       return data;
     }

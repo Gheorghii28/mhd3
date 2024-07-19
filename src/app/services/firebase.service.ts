@@ -7,6 +7,7 @@ import {
   deleteField,
   doc,
   getDoc,
+  setDoc,
   updateDoc,
 } from 'firebase/firestore';
 
@@ -21,17 +22,14 @@ export class FirebaseService {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log('Document data:', docSnap.data());
       return docSnap.data();
     } else {
-      console.log('No such document!');
       return null;
     }
   }
 
   async addDocument(collectionPath: string, data: any) {
     const docRef = await addDoc(collection(this.db, collectionPath), data);
-    console.log('Document written with ID: ', docRef.id);
     return docRef.id;
   }
 
@@ -56,5 +54,9 @@ export class FirebaseService {
     await updateDoc(ref, {
       [field]: deleteField(),
     });
+  }
+
+  async setDocWithId(collectionPath: string, docId: string, data: any) {
+    await setDoc(doc(this.db, collectionPath, docId), data);
   }
 }

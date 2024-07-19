@@ -35,7 +35,6 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.results$.subscribe((result: Poster[]) => {
-      console.log(result);
       this.searchResults = result;
     });
     this.userId = this.route.snapshot.paramMap.get('id');
@@ -53,6 +52,20 @@ export class SearchComponent implements OnInit {
   }
 
   openCard(imdbID: string) {
-    this.router.navigate(['/card', this.userId, imdbID]);
+    const options = this.getOptions(imdbID);
+    this.router.navigate(['/card', this.userId, imdbID], {
+      state: { options },
+    });
+  }
+
+  getOptions(imdbID: string): string[] {
+    return this.searchResults
+      .filter((data: Poster) => data.imdbID !== imdbID)
+      .map((data: Poster) => data.Title)
+      .slice(0, 2);
+  }
+
+  toResults() {
+    this.router.navigate(['/results', this.userId]);
   }
 }
